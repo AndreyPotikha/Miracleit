@@ -12,5 +12,5 @@ public interface TshirtDao {
 
     void delete(int id);
 
-    void update(int id, String color, String size);
+    void update(TShirts tShirts);
 }

@@ -27,8 +27,8 @@ public class ThirtServiceImpl implements TshirtService {
     }
 
     @Override
-    public void update(int id, String color, String size) {
+    public void update(TShirts tShirts) {
         TshirtDao tshirtDao = new TshirtDaoImpl();
-        tshirtDao.update(id, color, size);
+        tshirtDao.update(tShirts);
     }
 }

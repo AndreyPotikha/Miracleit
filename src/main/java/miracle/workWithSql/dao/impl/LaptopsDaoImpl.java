@@ -66,13 +66,13 @@ public class LaptopsDaoImpl implements LaptopsDao {
     }
 
     @Override
-    public void update(int id, String name, int userId) {
+    public void update(Laptop laptop) {
 
         try (Connection connection = Database.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_LAPTOT)){
-            preparedStatement.setString(1, name);
-            preparedStatement.setInt(2, userId);
-            preparedStatement.setInt(3, id);
+            preparedStatement.setString(1, laptop.getName());
+            preparedStatement.setInt(2, laptop.getUserId());
+            preparedStatement.setInt(3, laptop.getId());
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();

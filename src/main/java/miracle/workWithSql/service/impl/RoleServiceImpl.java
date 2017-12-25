@@ -28,8 +28,8 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void update(int id, String name) {
+    public void update(Role role) {
         RoleDao roleDao = new RoleDaoImpl();
-        roleDao.update(id, name);
+        roleDao.update(role);
     }
 }

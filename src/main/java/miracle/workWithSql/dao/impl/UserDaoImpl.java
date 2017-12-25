@@ -99,13 +99,13 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void updateUser(int idUser, String newName, String newSkills) {
+    public void updateUser(User user) {
 
         try (Connection connection = Database.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER)){
-            preparedStatement.setString(1, newName);
-            preparedStatement.setString(2, newSkills);
-            preparedStatement.setInt(3, idUser);
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2,user.getSkills());
+            preparedStatement.setInt(3, user.getId());
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();

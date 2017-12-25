@@ -17,7 +17,7 @@ public interface UserService {
 
     void updateUserSkills(int idUser, String newSkills);
 
-    void updateUser(int idUser, String newName, String newSkills);
+    void updateUser(User user);
 
 
 }

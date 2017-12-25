@@ -8,14 +8,9 @@ import miracle.workWithSql.dao.impl.LaptopsDaoImpl;
 import miracle.workWithSql.model.Laptop;
 import miracle.workWithSql.model.Role;
 import miracle.workWithSql.model.TShirts;
-import miracle.workWithSql.service.LaptopService;
-import miracle.workWithSql.service.RoleService;
-import miracle.workWithSql.service.TshirtService;
-import miracle.workWithSql.service.UserService;
-import miracle.workWithSql.service.impl.LaptopServiceImpl;
-import miracle.workWithSql.service.impl.RoleServiceImpl;
-import miracle.workWithSql.service.impl.ThirtServiceImpl;
-import miracle.workWithSql.service.impl.UserSrviceImpl;
+import miracle.workWithSql.model.UserRole;
+import miracle.workWithSql.service.*;
+import miracle.workWithSql.service.impl.*;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -28,10 +23,19 @@ public class Demo {
     public static void main(String[] args) throws SQLException {
 
 
+        /*UserRoleService userRoleService = new UserRoleServiceImpl();
+        System.out.println(userRoleService.getAllUserRole());
+
+        UserRole userRole = new UserRole();
+        userRole.setUserId(5);
+        userRole.setRoleId(5);
+        userRoleService.save(userRole);*/
+
+
 //        Work with role
 //*****************************************************************************************
-        /*RoleService roleService = new RoleServiceImpl();
-        System.out.println(roleService.getAllRoles());*/
+        RoleService roleService = new RoleServiceImpl();
+        System.out.println(roleService.getAllRoles());
 
         /*Role role = new Role();
         role.setName("Manager");
@@ -39,7 +43,10 @@ public class Demo {
 
 //        roleService.delete(3);
 
-//        roleService.update(2, "Manager");
+        Role role = new Role();
+        role.setName("HR");
+        role.setId(2);
+        roleService.update(role);
 //***************************************************************************************
 
 
@@ -47,7 +54,7 @@ public class Demo {
 
 //        Work with T-Shirts
 //******************************************************************************************
-    /*    TshirtService tshirtService = new ThirtServiceImpl();
+       /* TshirtService tshirtService = new ThirtServiceImpl();
         System.out.println(tshirtService.getAllTshirts());*/
 
         /*TShirts tShirts = new TShirts();
@@ -57,7 +64,11 @@ public class Demo {
 
 //        tshirtService.delete(6);
 
-//        tshirtService.update(3, "Blue", "xxl");
+     /*   TShirts tShirts = new TShirts();
+        tShirts.setColor("Blue");
+        tShirts.setSize("xl");
+        tShirts.setId(3);
+        tshirtService.update(tShirts);*/
 //****************************************************************************************
 
 
@@ -65,9 +76,9 @@ public class Demo {
 
 //                  Work with laptop
 //***************************************************************************************
-        LaptopService laptopService = new LaptopServiceImpl();
+      /*  LaptopService laptopService = new LaptopServiceImpl();
         System.out.println(laptopService.getAllUsers());
-
+*/
        /* Laptop laptop = new Laptop();
         laptop.setName("Acer");
         laptop.setUserId(3);
@@ -75,16 +86,20 @@ public class Demo {
 
 //        laptopService.delete(4);
 
-//        laptopService.update(3, "Lenovo",  3);
+     /*   Laptop laptop = new Laptop();
+        laptop.setName("Lenovo");
+        laptop.setUserId(2);
+        laptop.setId(3);
+        laptopService.update(laptop);*/
 //***************************************************************************************
 
 
 
 //                      Work with User
 // **************************************************************************************
-     /*   UserService userService = new UserSrviceImpl();
-        System.out.println(userService.getAllUsers());
-*/
+        /*UserService userService = new UserSrviceImpl();
+        System.out.println(userService.getAllUsers());*/
+
        /* miracle.workWithSql.model.User user = new miracle.workWithSql.model.User();
         user.setName("miki");
         user.setSkills("noob");
@@ -96,7 +111,11 @@ public class Demo {
 
 //        userService.updateUserSkills(12, "CSS");
 
-//        userService.updateUser(12, "Kolya", "maven");
+      /*  miracle.workWithSql.model.User user = new miracle.workWithSql.model.User();
+        user.setName("Lenox");
+        user.setSkills("Box");
+        user.setId(14);
+        userService.updateUser(user);*/
 
 //        statement.execute("INSERT INTO miracle.users (name, skills) VALUES ('Test', 'test test')");
 

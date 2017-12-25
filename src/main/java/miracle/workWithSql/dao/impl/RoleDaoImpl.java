@@ -62,12 +62,12 @@ public class RoleDaoImpl implements RoleDao{
     }
 
     @Override
-    public void update(int id, String name) {
+    public void update(Role role) {
 
         try (Connection connection = Database.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDAT_ROLE)){
-            preparedStatement.setString(1, name);
-            preparedStatement.setInt(2, id);
+            preparedStatement.setString(1, role.getName());
+            preparedStatement.setInt(2, role.getId());
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();

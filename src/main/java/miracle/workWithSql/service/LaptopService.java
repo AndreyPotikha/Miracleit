@@ -12,5 +12,5 @@ public interface LaptopService {
 
     void delete(int id);
 
-    void update(int id, String name, int userId);
+    void update(Laptop laptop);
 }

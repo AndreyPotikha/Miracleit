@@ -66,13 +66,13 @@ public class TshirtDaoImpl implements TshirtDao {
     }
 
     @Override
-    public void update(int id, String color, String size) {
+    public void update(TShirts tShirts) {
 
         try (Connection connection = Database.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_TSHIRT)){
-            preparedStatement.setString(1, color);
-            preparedStatement.setString(2, size);
-            preparedStatement.setInt(3, id);
+            preparedStatement.setString(1, tShirts.getColor());
+            preparedStatement.setString(2, tShirts.getSize());
+            preparedStatement.setInt(3, tShirts.getId());
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();

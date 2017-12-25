@@ -12,5 +12,5 @@ public interface RoleService {
 
     void delete(int id);
 
-    void update(int id, String name);
+    void update(Role role);
 }
