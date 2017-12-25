@@ -46,10 +46,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void save(User user) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER)){
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getSkills());
 
@@ -61,10 +60,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void delete(int idUsers) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER)){
             preparedStatement.setInt(1, idUsers);
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -75,10 +73,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void updateUserName(int idUser, String newName) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER_NAME);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER_NAME)){
             preparedStatement.setString(1, newName);
             preparedStatement.setInt(2, idUser);
             preparedStatement.execute();
@@ -90,10 +87,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void updateUserSkills(int idUser, String newSkills) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER_SKILLS);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER_SKILLS)){
             preparedStatement.setString(1, newSkills);
             preparedStatement.setInt(2, idUser);
             preparedStatement.execute();
@@ -104,10 +100,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void updateUser(int idUser, String newName, String newSkills) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER)){
             preparedStatement.setString(1, newName);
             preparedStatement.setString(2, newSkills);
             preparedStatement.setInt(3, idUser);

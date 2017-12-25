@@ -42,10 +42,9 @@ public class TshirtDaoImpl implements TshirtDao {
 
     @Override
     public void save(TShirts t_shirts) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SAVE_TSHIRTS);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SAVE_TSHIRTS)){
             preparedStatement.setString(1, t_shirts.getColor());
             preparedStatement.setString(2, t_shirts.getSize());
             preparedStatement.execute();
@@ -56,10 +55,9 @@ public class TshirtDaoImpl implements TshirtDao {
 
     @Override
     public void delete(int id) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_TSHIRT);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_TSHIRT)){
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -69,10 +67,9 @@ public class TshirtDaoImpl implements TshirtDao {
 
     @Override
     public void update(int id, String color, String size) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_TSHIRT);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_TSHIRT)){
             preparedStatement.setString(1, color);
             preparedStatement.setString(2, size);
             preparedStatement.setInt(3, id);

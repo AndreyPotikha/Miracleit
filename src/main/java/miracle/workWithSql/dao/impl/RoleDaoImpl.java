@@ -39,10 +39,9 @@ public class RoleDaoImpl implements RoleDao{
 
     @Override
     public void save(Role role) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SAVE_NEW_ROLES);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SAVE_NEW_ROLES)){
             preparedStatement.setString(1, role.getName());
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -52,10 +51,9 @@ public class RoleDaoImpl implements RoleDao{
 
     @Override
     public void delete(int id) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_ROLE);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_ROLE)){
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -65,10 +63,9 @@ public class RoleDaoImpl implements RoleDao{
 
     @Override
     public void update(int id, String name) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(UPDAT_ROLE);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDAT_ROLE)){
             preparedStatement.setString(1, name);
             preparedStatement.setInt(2, id);
             preparedStatement.execute();

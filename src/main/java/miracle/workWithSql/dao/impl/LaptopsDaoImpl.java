@@ -42,10 +42,8 @@ public class LaptopsDaoImpl implements LaptopsDao {
     @Override
     public void save(Laptop laptop) {
 
-        Connection connection = Database.getConnection();
-
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(ADD_NEW_LAPTOPS);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(ADD_NEW_LAPTOPS)){
             preparedStatement.setString(1, laptop.getName());
             preparedStatement.setInt(2, laptop.getUserId());
 
@@ -57,10 +55,9 @@ public class LaptopsDaoImpl implements LaptopsDao {
 
     @Override
     public void delete(int id) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_FROM_LAPTOPS);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_FROM_LAPTOPS)){
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -70,10 +67,9 @@ public class LaptopsDaoImpl implements LaptopsDao {
 
     @Override
     public void update(int id, String name, int userId) {
-        Connection connection = Database.getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_LAPTOT);
+        try (Connection connection = Database.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_LAPTOT)){
             preparedStatement.setString(1, name);
             preparedStatement.setInt(2, userId);
             preparedStatement.setInt(3, id);

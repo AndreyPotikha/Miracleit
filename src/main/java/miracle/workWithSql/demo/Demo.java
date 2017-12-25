@@ -27,11 +27,11 @@ public class Demo {
 
     public static void main(String[] args) throws SQLException {
 
-        
+
 //        Work with role
 //*****************************************************************************************
-        RoleService roleService = new RoleServiceImpl();
-        System.out.println(roleService.getAllRoles());
+        /*RoleService roleService = new RoleServiceImpl();
+        System.out.println(roleService.getAllRoles());*/
 
         /*Role role = new Role();
         role.setName("Manager");
@@ -39,7 +39,7 @@ public class Demo {
 
 //        roleService.delete(3);
 
-        roleService.update(2, "Manager");
+//        roleService.update(2, "Manager");
 //***************************************************************************************
 
 
@@ -65,8 +65,8 @@ public class Demo {
 
 //                  Work with laptop
 //***************************************************************************************
-      /*  LaptopService laptopService = new LaptopServiceImpl();
-        System.out.println(laptopService.getAllUsers());*/
+        LaptopService laptopService = new LaptopServiceImpl();
+        System.out.println(laptopService.getAllUsers());
 
        /* Laptop laptop = new Laptop();
         laptop.setName("Acer");
